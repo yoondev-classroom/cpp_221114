@@ -33,6 +33,7 @@ int main(void)
 }
 #endif
 
+#if 0
 #include <cstdio>
 // C++은 헤더파일의 확장자가 없는 경우가 있습니다.
 
@@ -48,4 +49,19 @@ int main()
 
   // return 0;
   //  : 컴파일러가 자동으로 return 0; 추가해줍니다.
+}
+#endif
+
+// C++ 표준 입출력 라이브러리가 있습니다.
+#include <iostream>
+
+// std::cout : 표준 출력
+// std::cin  : 표준 입력
+// std::cerr : 표준 에러
+
+// std::endl : New line
+
+int main()
+{
+  std::cout << "Hello, C++" << std::endl;
 }
