@@ -65,7 +65,6 @@ int main()
   cout << n4 << endl;
 
   long long l = INT_MAX + 1LL;
-
   int x1 = l;
   int x2(l);
   cout << x1 << endl;
@@ -73,4 +72,6 @@ int main()
 
   int x3 = {(int)l};
   int x4{(int)l};
+
+  long long l2{x4}; // Promotion - OK!
 }
