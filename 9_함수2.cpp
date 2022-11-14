@@ -34,6 +34,10 @@ int square(int x) { return x * x; }
 double square(double x) { return x * x; }
 long long square(long long x) { return x * x; }
 
+// extern "C"
+// => 네임 맹글링을 하지 않는 C의 함수 형태로 만듭니다.
+// 1. C++ 프로그램에서 C의 함수를 호출할 때
+
 int main()
 {
   cout << square(10) << endl;
