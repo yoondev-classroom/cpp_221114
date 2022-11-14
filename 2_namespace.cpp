@@ -9,6 +9,7 @@
 // 2. namespace
 //  1) 이름 충돌을 방지하기 위해 사용합니다.
 //  2) C++ 표준의 모든 요소는 std 이름 공간안에 존재합니다.
+//  3) 프로그램의 각 요소를 관련된 요소끼리 그룹화할 수 있습니다.
 
 // audio.cpp
 namespace audio
@@ -19,6 +20,12 @@ namespace audio
   }
 
   int count = 0;
+}
+
+// audio_play.cpp
+namespace audio
+{
+  void play() {}
 }
 
 // video.cpp
