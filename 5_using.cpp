@@ -13,6 +13,8 @@ using namespace std;
 
 // 2. C++11, 기존 타입의 별칭을 만들 때 사용할 수 있습니다.
 //   => typedef를 대체합니다.
+//   1) 복잡한 타입 표현식을 표현할 때, 직관적이지 않습니다.
+//   2) 템플릿 타입 별칭을 만들 수 없습니다.
 
 typedef int ARR3[3];
 
@@ -38,6 +40,7 @@ int *foo()
 // 4. int (*goo())[3]
 // - 배열의 각 요소는 int 입니다.
 
+#if 0
 typedef int (*PARR3)[3];
 
 // int (*goo())[3]
@@ -73,4 +76,36 @@ int main()
   //  2) &
   int(*p2)[3] = &x; // x -> Decay X -> int[3]
   // 배열 포인터
+}
+#endif
+
+// typedef int (*PARR3)[3];
+using PARR3 = int (*)[3];
+
+PARR3 goo()
+{
+  static int x[3];
+  return &x; // int(*)[3]
+}
+
+int add(int a, int b) { return a + b; }
+// int (*)(int, int) -----> add: int(int, int)
+
+// typedef int (*FP)(int, int);
+using FP = int (*)(int, int);
+
+int main()
+{
+  // int (*fp)(int, int);
+  FP fp;
+
+  // C++에서는 아래처럼 사용하는 것이 좋습니다.
+  fp = &add;
+  int result = (*fp)(10, 20);
+  cout << result << endl;
+
+  // C 에서는 아래 표현이 선호됩니다.
+  fp = add;            // 함수의 이름은 함수 포인터로 해석됩니다.
+  result = fp(10, 20); // 함수 포인터에 대한 호출은 참조로 해석됩니다.
+  cout << result << endl;
 }
