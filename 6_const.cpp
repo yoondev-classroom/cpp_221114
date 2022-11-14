@@ -24,13 +24,12 @@ using namespace std;
 int main()
 {
   constexpr int c = 100;
-
   // int n = 20;
   // constexpr int c = n;
   // const int c = n;
 
   int *p = (int *)&c;
-  *p = 42;
+  // *p = 42; /* 미정의 동작 */
 
   cout << *p << endl;
   cout << c << endl;
