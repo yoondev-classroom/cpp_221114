@@ -15,9 +15,20 @@ int main(void)
 }
 #endif
 
-int main()
+#if 0
+int main(void)
 {
   const int c; // OK
   // c = 10;   // Compile Error
   printf("%d\n", c);
+}
+#endif
+
+int main(void)
+{
+  char str1[] = "hello";
+  const char *str2 = "hello";
+
+  str1[0] = 'x';
+  // str2[0] = 'x'; /* 미정의 동작 */
 }
