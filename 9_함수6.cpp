@@ -25,6 +25,7 @@ TYPE square(TYPE x)
 //     다양한 타입을 전달할 경우, 코드 메모리 사용량이 증가할 수 있습니다.
 //   => inline 최적화와 사용될 경우, 코드 메모리 사용량도 최적화될 수 있습니다.
 
+#if 0
 int main()
 {
   cout << square(10) << endl;    // TYPE -> int
@@ -34,4 +35,19 @@ int main()
 
   cout << square<long long>(1000L) << endl; // TYPE -> long long
   // 명시적으로 타입을 지정합니다.
+}
+#endif
+
+// STL(Standard Template Library)
+// => C++ 표준 라이브러리
+//   많은 요소들이 템플릿 기반으로 제공됩니다.
+
+template <typename TYPE1, typename TYPE2>
+void foo(TYPE1 a, TYPE2 b)
+{
+}
+
+int main()
+{
+  foo(10, 'A'); // foo<int, char>(10, 'A')
 }
