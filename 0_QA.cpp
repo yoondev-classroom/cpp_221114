@@ -44,7 +44,6 @@ int main()
 
 // 2. 조건부 컴파일
 // $ gcc 0_QA.cpp -DNDEBUG
-
 #include <stdio.h>
 
 #ifndef NDEBUG
@@ -53,8 +52,13 @@ int main()
 #define TRACE(fmt, ...) (void)0
 #endif
 
+int foo() { return 42; }
+
 int main()
 {
+  (void)foo();
+  // 반환값을 무시하겠다.
+
   int a = 10;
   TRACE("a: %d\n", a);
 }
