@@ -22,5 +22,5 @@ void goo(int a, int b = 10) {}
 
 int main()
 {
-  goo();
+  // goo(); // 모호성 오류!
 }
