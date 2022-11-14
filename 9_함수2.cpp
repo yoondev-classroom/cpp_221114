@@ -37,6 +37,9 @@ long long square(long long x) { return x * x; }
 // extern "C"
 // => 네임 맹글링을 하지 않는 C의 함수 형태로 만듭니다.
 // 1. C++ 프로그램에서 C의 함수를 호출할 때
+// 2. C 프로그램에서 C++의 함수를 호출할 때
+
+// => extern "C"로 지정된 함수는 오버로딩이 불가능합니다.
 
 int main()
 {
