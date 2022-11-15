@@ -34,6 +34,14 @@ int square(int x) { return x * x; }
 double square(double x) { return x * x; }
 long long square(long long x) { return x * x; }
 
+// 함수 오버로딩의 원리: 네임 맹글링
+// C:   int square(int)    {} => _square
+//   double square(double) {} => _square
+
+// C++: int square(int)    {} => __Z6squarei
+//   double square(double) {} => __Z6squared
+// extern "C" double square(double) {} => _square
+
 // extern "C"
 // => 네임 맹글링을 하지 않는 C의 함수 형태로 만듭니다.
 // 1. C++ 프로그램에서 C의 함수를 호출할 때

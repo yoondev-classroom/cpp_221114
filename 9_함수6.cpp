@@ -25,7 +25,7 @@ TYPE square(TYPE x)
 //     다양한 타입을 전달할 경우, 코드 메모리 사용량이 증가할 수 있습니다.
 //   => inline 최적화와 사용될 경우, 코드 메모리 사용량도 최적화될 수 있습니다.
 
-#if 0
+#if 1
 int main()
 {
   cout << square(10) << endl;    // TYPE -> int
