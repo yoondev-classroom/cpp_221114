@@ -1,19 +1,23 @@
-// 16_stack3.cpp
+// 16_stack4.cpp
 #include <iostream>
 using namespace std;
 
-// 3. C++은 구조체 안에 멤버 데이터와 멤버 데이터를
-//    조작하는 함수를 묶을 수 있습니다.
+// 객체의 상태는 멤버 함수(메소드)를 통해서만
+// 접근할 수 있어야 합니다.
+//  => 정보 은닉(Information Hiding)
+//  => 접근 지정자
+//    public: 외부에서 접근이 가능합니다.
+//    private: 외부에서 접근이 불가능하고,
+//            멤버 함수를 통해서만 접근이 가능합니다.
 
-// 캡슐화: 상태(멤버 데이터, 속성) + 행위(멤버 함수, 메소드)
-//   "상태와 행위를 가지고 있는 변수"
-//    => 객체(Object)
 struct Stack
 {
+private:
   // 멤버 데이터(상태)
   int buff[10];
   int top;
 
+public:
   // 멤버 함수(행위)
   void init()
   {
@@ -34,12 +38,13 @@ struct Stack
 int main()
 {
   Stack s1;
-
   s1.init();
 
   s1.push(10);
   s1.push(20);
   s1.push(30);
+
+  s1.top = 5; /* 잘못된 외부에서의 상태 변경 */
 
   cout << s1.pop() << endl;
   cout << s1.pop() << endl;
