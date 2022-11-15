@@ -11,7 +11,7 @@ using namespace std;
 class Stack
 {
 private:
-  int buff[10];
+  int *buff; // !!
   int top;
 
 public:
@@ -19,12 +19,15 @@ public:
   Stack(int size)
   {
     cout << "Stack(int)" << endl;
+    top = 0;
+    buff = new int[size];
   }
 
   Stack()
   {
     cout << "Stack()" << endl;
     top = 0;
+    buff = new int[10];
   }
   //-----
 
@@ -41,6 +44,24 @@ public:
   }
 };
 
+#if 1
+int main()
+{
+  cout << "main" << endl;
+  // Stack s1(100);
+  Stack s1;
+
+  s1.push(10);
+  s1.push(20);
+  s1.push(30);
+
+  cout << s1.pop() << endl;
+  cout << s1.pop() << endl;
+  cout << s1.pop() << endl;
+}
+#endif
+
+#if 0
 // 생성자에 인자를 전달하는 방법
 int main()
 {
@@ -52,21 +73,5 @@ int main()
   // Copy Initialization
   Stack s4 = 100;   // Stack(int)
   Stack s5 = {100}; // Stack(int)
-}
-
-#if 0
-int main()
-{
-  cout << "main" << endl;
-  Stack s1;
-  // s1.init();
-
-  s1.push(10);
-  s1.push(20);
-  s1.push(30);
-
-  cout << s1.pop() << endl;
-  cout << s1.pop() << endl;
-  cout << s1.pop() << endl;
 }
 #endif
