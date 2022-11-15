@@ -13,6 +13,9 @@ using namespace std;
 // struct: 기본 접근 지정이 public 입니다.   => 데이터 캡슐화
 //  class: 기본 접근 지정이 private 입니다.  => 객체 캡슐화
 
+// - 클래스는 객체 인스턴스를 생성하는 틀 입니다.
+//   객체는 클래스의 인스턴스 입니다.
+
 class Stack
 {
 private:
