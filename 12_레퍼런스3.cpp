@@ -30,6 +30,7 @@ void PrintUser(const User *user)
   // user->age = 42; => 컴파일 오류
 }
 
+// C++에서 사용하는 방식입니다.
 void PrintUser(const User &user)
 {
   cout << user.name << ", " << user.age << endl;
@@ -44,8 +45,6 @@ int main()
   // User user = {"Tom", 42};
   // User user{"Tom", 42};
 
-  // PrintUser(user);
-  // PrintUser(&user); // const User* -> User*
-
-  PrintUser(user);
+  PrintUser(&user); // Call by pointer
+  PrintUser(user);  // Call by reference
 }
