@@ -44,7 +44,8 @@ int main()
   s1.push(20);
   s1.push(30);
 
-  s1.top = 5; /* 잘못된 외부에서의 상태 변경 */
+  // s1.top = 5; /* 잘못된 외부에서의 상태 변경 */
+  // cout << s1.top << endl;
 
   cout << s1.pop() << endl;
   cout << s1.pop() << endl;
