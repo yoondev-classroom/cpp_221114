@@ -126,6 +126,7 @@ int main()
 }
 #endif
 
+#if 0
 int main()
 {
   int &&r = 10; // r --> 10
@@ -133,3 +134,8 @@ int main()
 
   cout << r << endl;
 }
+#endif
+
+// Rvalue reference
+// 1. 소유권 이전 => move
+// 2. 완벽한 전달 => perfect forwarding
