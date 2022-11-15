@@ -23,6 +23,12 @@ void PrintUser(User user)
 // C에서 사용하는 방식입니다.
 void PrintUser(const User *user)
 {
+  // 포인터는 잘못된 입력에 대한 검증이 반드시 필요합니다.
+  if (user == NULL)
+  {
+    return;
+  }
+
   // cout << (*user).name << ", " << (*user).age << endl;
   cout << user->name << ", " << user->age << endl;
 
@@ -33,6 +39,9 @@ void PrintUser(const User *user)
 // C++에서 사용하는 방식입니다.
 void PrintUser(const User &user)
 {
+  // 참조는 널 레퍼런스가 존재하지 않기 때문에,
+  // 입력에 대한 검증이 필요하지 않습니다.
+
   cout << user.name << ", " << user.age << endl;
 }
 
@@ -47,4 +56,7 @@ int main()
 
   PrintUser(&user); // Call by pointer
   PrintUser(user);  // Call by reference
+
+  User *pUser = NULL;
+  PrintUser(pUser); /* 미정의 동작 */
 }
