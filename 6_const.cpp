@@ -6,6 +6,10 @@ using namespace std;
 //  => C의 const는 상수 표현식이 아닙니다.
 //    - 배열의 크기를 지정하는데 사용할 수 없습니다.
 //    - 런타임 상수로만 취급됩니다.
+//  => C++ const 전역 변수: internal linkage
+//        const int global = 100; => static
+//     C const 전역 변수: external linkage
+//        const int global = 100; => extern
 
 // 2. C++ const
 //  1) 반드시 초기화해야 합니다.
