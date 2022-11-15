@@ -62,12 +62,12 @@ void foo(const int &r)
 
 void foo(int &&rr)
 {
-  cout << "lvalue" << endl;
+  cout << "rvalue" << endl;
 }
 
 void foo(int &r)
 {
-  cout << "rvalue" << endl;
+  cout << "lvalue" << endl;
 }
 
 int main()
