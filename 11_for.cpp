@@ -3,6 +3,10 @@
 #include <iostream>
 using namespace std;
 
+// Ranged-for
+// => 전달되는 대상체가 반복자를 구현하고 있으면,
+//    사용할 수 있습니다.
+
 int main()
 {
   double x[5] = {1.1, 2.2, 3.3, 4, 5};
