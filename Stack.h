@@ -33,6 +33,7 @@ public:
 
   // 인라인 함수의 경우,
   // 반드시 구현이 헤더파일을 통해 제공되어야 합니다.
+  // inline은 선언에만 작성해야 합니다.
   inline void push(int n);
   inline int pop();
 };
