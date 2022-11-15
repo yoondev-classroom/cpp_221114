@@ -16,7 +16,6 @@ int main()
   cout << n << endl;
 
   int* p2 = NULL; // 참조하는 대상체가 존재하지 않음
-
 }
 #endif
 
