@@ -5,10 +5,10 @@ using namespace std;
 #if 0
 int main()
 {
-  int x[3] = {10, 20, 30};
+  double x[3] = {10, 20, 30};
 
-  int n = x[0];
-  int *p = x;
+  double n = x[0];
+  double *p = x;
 }
 #endif
 

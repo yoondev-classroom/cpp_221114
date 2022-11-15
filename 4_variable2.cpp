@@ -41,6 +41,13 @@ int main()
 }
 #endif
 
+// C              => Go
+// C++            => Rust >>>  D, Carbon
+// Java           => Kotlin, Scala
+// Objective-C    => Swift
+// => 현대적인 언어는 정수 타입 간의 암묵적인 변환이 허용되지 않습니다.
+//   : 암묵적인 타입의 변환은 위험하다.
+
 int main()
 {
   double d = 3.14;

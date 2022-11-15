@@ -12,7 +12,7 @@
 //  3) 프로그램의 각 요소를 관련된 요소끼리 그룹화할 수 있습니다.
 
 // audio.cpp
-namespace audio
+namespace audio // namespace는 소문자로 작성합니다.
 {
   void init()
   {

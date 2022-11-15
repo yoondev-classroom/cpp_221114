@@ -22,12 +22,35 @@ using namespace std;
 /// 3) C++11, constexpr
 //     => 컴파일 타임 상수에만 지정할 수 있습니다.
 
+// 3. const를 사용할 수 있다면,
+//    반드시 적용해야 합니다. => "불변성"
+//   - 값이 변경되는 경로를 쉽게 추적할 수 있습니다.
+//   - 값을 안전하게 공유할 수 있습니다.
+//   - 병렬성을 갖는 프로그램에서 안전하게 공유할 수 있습니다.
+//   - 대상체를 읽을 때, 메모리로부터 읽는 것이 아니라,
+//     바로 값으로 읽어서 처리할 수 있습니다. => 컴파일 타임 상수
+
+struct Point
+{
+  int x;
+  int y;
+};
+
 int main()
 {
-  constexpr int c = 100;
-  // int n = 20;
-  // constexpr int c = n;
-  // const int c = n;
+  constexpr struct Point pt1 = {10, 20};
+  // 초기화 이후에 값이 변경될 수 없습니다. => 불변성
+  cout << pt1.x << ", " << pt1.y << endl;
+
+  // constexpr int c = 100;
+
+  int n = 20;
+  const int c = n;
+  // constexpr int c = n; // Compile Error
+  /*
+  constexpr variable 'c' must be initialized by a constant expression
+
+  */
 
   int *p = (int *)&c;
   // *p = 42; /* 미정의 동작 */
