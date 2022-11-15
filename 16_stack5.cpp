@@ -22,11 +22,13 @@ private:
   int top;
 
 public:
+  //-----
   Stack()
   {
     cout << "Stack()" << endl;
     top = 0;
   }
+  //-----
 
   // void init() { top = 0; }
 
