@@ -104,4 +104,5 @@ int main()
 
   Point *p3 = new Point{10, 20};
   cout << p3->x << ", " << p3->y << endl;
+  delete p3;
 }
