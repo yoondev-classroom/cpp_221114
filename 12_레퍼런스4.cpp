@@ -106,36 +106,3 @@ int main()
   const int &cr3 = c;  /* Ok */
 }
 #endif
-
-#if 0
-int main()
-{
-  int a = 10;
-  int b = 20;
-
-  int &r = a;
-  r = 100;
-  cout << a << endl;
-  cout << b << endl;
-
-  r = b; // a = 20;
-  r = 50;
-
-  cout << a << endl;
-  cout << b << endl;
-}
-#endif
-
-#if 0
-int main()
-{
-  int &&r = 10; // r --> 10
-  r = 20;       // 소유권 이동 r --> 20
-
-  cout << r << endl;
-}
-#endif
-
-// Rvalue reference
-// 1. 소유권 이전 => move
-// 2. 완벽한 전달 => perfect forwarding
