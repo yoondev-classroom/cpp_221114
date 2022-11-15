@@ -9,13 +9,21 @@ int OpenFile(const char *filename) { return 1; }
 // 성공시 유효한 메모리, 실패시 NULL
 int *AllocMemory(size_t size) { return NULL; }
 
+enum TaskState
+{
+  TASK_RUNNING,
+  TASK_STOPPED,
+};
+
+TaskState GetCurrentState() { return TASK_RUNNING; }
+
 int main()
 {
   for (int i = 0; i < 10; ++i)
   {
   }
 
-  // C++17, if-statement with initializedr
+  // C++17, if-statement with initializer
   if (int ret = OpenFile("a.txt"); ret != 0)
   {
     cout << "file open error" << endl;
@@ -24,6 +32,31 @@ int main()
   if (int *ret = AllocMemory(42); ret == NULL)
   {
     cout << "memory alloc error" << endl;
+  }
+
+  // Switch 문에서도 사용이 가능합니다.
+  switch (TaskState state = GetCurrentState(); state)
+  {
+  case TASK_RUNNING:
+    break;
+
+  case TASK_STOPPED:
+    break;
+
+  default:
+    break;
+  }
+
+  switch (TaskState state = GetCurrentState(); state)
+  {
+  case TASK_RUNNING:
+    break;
+
+  case TASK_STOPPED:
+    break;
+
+  default:
+    break;
   }
 }
 
