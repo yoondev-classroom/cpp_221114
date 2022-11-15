@@ -55,6 +55,7 @@ int main()
 }
 #endif
 
+#if 0
 void foo(const int &r)
 {
   cout << "const lvalue" << endl;
@@ -70,10 +71,19 @@ void foo(int &r)
   cout << "lvalue" << endl;
 }
 
+// Rvalue: 수정이 불가능합니다.
+
 int main()
 {
   int a = 10;
+  int b = 20;
   const int c = 42;
+
+  int &&rr = 10; // rr ---> 10
+  cout << rr << endl;
+
+  rr = 20; // 바뀌는 것이 아닙니다. // rr ---> 20
+  cout << rr << endl;
 
   foo(a);  // lvalue
   foo(10); // rvalue
@@ -94,4 +104,32 @@ int main()
   const int &cr1 = a;  /* OK */
   const int &cr2 = 10; /* OK */
   const int &cr3 = c;  /* Ok */
+}
+#endif
+
+#if 0
+int main()
+{
+  int a = 10;
+  int b = 20;
+
+  int &r = a;
+  r = 100;
+  cout << a << endl;
+  cout << b << endl;
+
+  r = b; // a = 20;
+  r = 50;
+
+  cout << a << endl;
+  cout << b << endl;
+}
+#endif
+
+int main()
+{
+  int &&r = 10; // r --> 10
+  r = 20;       // 소유권 이동 r --> 20
+
+  cout << r << endl;
 }
