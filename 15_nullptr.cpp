@@ -26,6 +26,11 @@ int main()
   {
     cout << "p1 == nullptr" << endl;
   }
+
+  // C++은 bool 타입이 있습니다.
+  bool b = true;
+  // b = false;
+  cout << b << endl;
 }
 
 #if 0
