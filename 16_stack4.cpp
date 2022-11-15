@@ -10,7 +10,10 @@ using namespace std;
 //    private: 외부에서 접근이 불가능하고,
 //            멤버 함수를 통해서만 접근이 가능합니다.
 
-struct Stack
+// struct: 기본 접근 지정이 public 입니다.   => 데이터 캡슐화
+//  class: 기본 접근 지정이 private 입니다.  => 객체 캡슐화
+
+class Stack
 {
 private:
   // 멤버 데이터(상태)
