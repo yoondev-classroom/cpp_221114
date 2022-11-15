@@ -62,7 +62,11 @@ int main()
 //     주의해서 사용해야 한다는 의도가 있습니다.
 
 // 3. const_cast
+//   : 메모리의 상수성을 제거하는 목적으로 사용합니다.
+//     const의 타입의 불일치 문제를 해결하는 용도로 사용해야 합니다.
+
 // 4. dynamic_cast
+//   => 곧 다시 다룹니다.
 
 int main()
 {
@@ -84,4 +88,11 @@ int main()
   // double *pd = static_cast<double *>(&n);      /* Compile Error */
   double *pd = reinterpret_cast<double *>(&n); /* OK */
   // *pd = 3.14;                               /* 미정의 동작 */
+
+  const char *str = "hello world";
+  // print_str(str);
+
+  // print_str(static_cast<char *>(str));      /* Compile Error */
+  // print_str(reinterpret_cast<char *>(str)); /* Compile Error */
+  print_str(const_cast<char *>(str));
 }
