@@ -18,15 +18,25 @@
 // 4. delete 연산자 입니다.
 //   => new를 통해 할당된 메모리의 주소를 전달받습니다.
 //      NULL을 전달할 경우, 아무일도 수행하지 않습니다.
+//   * 주의사항
+//     연속된 메모리를 할당한 경우, new int[10]
+//     반드시 delete[] 연산자로 해지해야 합니다.
 
 int main()
 {
   int *p1 = static_cast<int *>(malloc(sizeof(int)));
   free(p1);
 
+  int *p2 = static_cast<int *>(malloc(sizeof(int) * 10));
+  free(p2);
+
   p1 = NULL;
   free(p1);
 
   int *pn1 = new int;
   delete pn1;
+
+  int *pn2 = new int[10];
+  // delete pn2; /* 미정의 동작 */
+  delete[] p2; // 연속된 메모리 해지 연산자
 }
