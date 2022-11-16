@@ -3,7 +3,7 @@
 using namespace std;
 
 // 3. 해결 방법 3가지
-//  3) 복사 금지 => 자원 독점
+//  3) 복사 금지 + 소유권 이동 => 자원 독점
 class User
 {
 private:
