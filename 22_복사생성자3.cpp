@@ -31,3 +31,11 @@ int main()
   Sample s;
   foo(s);
 }
+
+// 결론
+//  - int, double, char .. 크기가 크기 않은 타입
+// void foo(int a) /* OK */
+
+//  - 객체 타입
+// void foo(User user);        /* NO */
+// void foo(const User &user); /* OK */
