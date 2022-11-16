@@ -70,11 +70,11 @@ public:
 Point Add(const Point &p1, const Point &p2)
 {
   // 만드는 방법 1. NRVO
-  Point ret(p1.x + p2.x, p1.y + p2.y);
-  return ret;
+  // Point ret(p1.x + p2.x, p1.y + p2.y);
+  // return ret;
 
   // 만드는 방법 2. 임시 객체 반환, RVO
-  // return Point(p1.x + p2.x, p1.y + p2.y);
+  return Point(p1.x + p2.x, p1.y + p2.y);
 }
 
 int main()
