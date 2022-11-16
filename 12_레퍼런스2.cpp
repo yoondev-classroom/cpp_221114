@@ -21,13 +21,13 @@ int main()
 
   x = 10;
   inc1(x);
-  cout << x << endl;
+  cout << x << endl; // 10
 
   x = 10;
   inc2(&x);
-  cout << x << endl;
+  cout << x << endl; // 11
 
   x = 10;
   inc3(x);
-  cout << x << endl;
+  cout << x << endl; // 11
 }
