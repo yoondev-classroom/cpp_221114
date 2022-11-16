@@ -3,6 +3,7 @@
 #ifndef STACK_HPP
 #define STACK_HPP
 
+#if 0
 template <typename TYPE>
 class Stack
 {
@@ -38,5 +39,55 @@ public:
     return buff[--top];
   }
 };
+#endif
+
+template <typename TYPE>
+class Stack
+{
+private:
+  TYPE *buff;
+  int top;
+
+public:
+  ~Stack();
+
+  Stack(int size);
+  Stack();
+
+  void push(TYPE n);
+  TYPE pop();
+};
+
+template <typename TYPE>
+Stack<TYPE>::~Stack()
+{
+  delete[] buff;
+}
+
+template <typename TYPE>
+Stack<TYPE>::Stack(int size)
+{
+  top = 0;
+  buff = new TYPE[size];
+}
+
+template <typename TYPE>
+Stack<TYPE>::Stack()
+{
+  top = 0;
+  buff = new TYPE[10];
+}
+
+template <typename TYPE>
+void Stack<TYPE>::push(TYPE n)
+{
+  buff[top++] = n;
+}
+
+template <typename TYPE>
+TYPE Stack<TYPE>::pop()
+{
+  return buff[--top];
+}
 
 #endif

@@ -56,6 +56,9 @@ public:
 
 #include "Stack.hpp"
 
+//       Stack: 클래스 템플릿
+// Stack<TYPE>: 클래스
+
 int main()
 {
   Stack<int> s1;
