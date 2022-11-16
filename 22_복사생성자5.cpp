@@ -31,6 +31,9 @@ Sample foo()
 
 // 해결방법: RVO(Return Value Optimization)
 //  => 임시 객체를 만들면서, 반환하면 임시 객체의 생성 비용을 제거할 수 있습니다.
+
+//  최신 컴파일러는 NRVO(Named RVO)를 지원합니다.
+
 Sample foo()
 {
   // Sample g;
@@ -63,14 +66,15 @@ public:
   friend Point Add(const Point &p1, const Point &p2);
 };
 
+// -fno-elide-constructors: RVO 최적화 끄는 옵션
 Point Add(const Point &p1, const Point &p2)
 {
-  // 만드는 방법 1.
-  // Point ret(p1.x + p2.x, p1.y + p2.y);
-  // return ret;
+  // 만드는 방법 1. NRVO
+  Point ret(p1.x + p2.x, p1.y + p2.y);
+  return ret;
 
   // 만드는 방법 2. 임시 객체 반환, RVO
-  return Point(p1.x + p2.x, p1.y + p2.y);
+  // return Point(p1.x + p2.x, p1.y + p2.y);
 }
 
 int main()
