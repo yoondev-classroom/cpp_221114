@@ -12,6 +12,7 @@ using namespace std;
 // 클래스 템플릿
 // => 템플릿의 타입을 컴파일러가 결정할 수 없을 수 있고,
 //    명시적으로 타입을 지정해야 합니다.
+#if 0
 template <typename TYPE>
 class Stack
 {
@@ -47,6 +48,13 @@ public:
     return buff[--top];
   }
 };
+#endif
+
+// 템플릿(함수 템플릿, 클래스 템플릿)은 헤더와 소스의 분리가 불가능합니다.
+// => 반드시 헤더를 통해서만 제공해야 합니다.
+//  Stack.h + Stack.cpp  => Stack.hpp
+
+#include "Stack.hpp"
 
 int main()
 {
