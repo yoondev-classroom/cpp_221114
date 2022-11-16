@@ -17,6 +17,15 @@ private:
 
 public:
   //-----
+  // 기본 파라미터를 이용하면, 불필요한 오버로딩을 제거할 수 있습니다.
+  Stack(int size = 10)
+  {
+    cout << "Stack(int)" << endl;
+    top = 0;
+    buff = new int[size];
+  }
+
+#if 0
   Stack(int size)
   {
     cout << "Stack(int)" << endl;
@@ -30,6 +39,7 @@ public:
     top = 0;
     buff = new int[10];
   }
+#endif
   //-----
 
   // void init() { top = 0; }

@@ -15,7 +15,6 @@ using namespace std;
 
 // - 클래스는 객체 인스턴스를 생성하는 틀 입니다.
 //   객체는 클래스의 인스턴스 입니다.
-
 class Stack
 {
 private:

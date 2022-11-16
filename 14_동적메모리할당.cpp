@@ -61,7 +61,6 @@ int main()
 #endif
 
 // * new int 하였을 때, 초기화되지 않은 메모리를 반환합니다.
-
 int main()
 {
   int *p = new int;
