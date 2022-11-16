@@ -8,6 +8,7 @@ using namespace std;
 
 // 2. public: 외부에서 접근이 가능합니다.
 //   private: 외부에서 접근이 불가능합니다.
+//            friend로 선언된 함수와 클래스는 사용할 수 있습니다.
 
 // 3. friend로 선언된 함수와 클래스는 자신의 private 멤버에 접근이 가능합니다.
 
@@ -25,10 +26,12 @@ public:
   }
 
   // 방법 1. 접근자 메소드 / Getter
+  // => 아래의 함수를 통해 누구나 필드에 값을 읽을 수 있습니다.
   string GetName() { return name; }
   int GetAge() { return age; }
 
   // 방법 2. friend
+  // => 캡슐화의 정책을 깨뜨리지 않고, 캡슐화의 경계를 확장할 수 있습니다.
   friend void PrintUser(User user);
   friend class UserPrinter;
 };
