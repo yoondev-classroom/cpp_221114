@@ -3,6 +3,19 @@
 using namespace std;
 
 // 1. 초기화와 대입의 차이를 알아야 합니다.
+#if 0
+int main()
+{
+  int a = 10; // 초기화
+
+  int b;
+  b = 10; // 대입
+
+  // 초기화가 반드시 필요합니다.
+  // const int c;
+  // int &r;
+}
+#endif
 
 // 2. C++ 에서는 초기화가 반드시 필요한 경우가 있습니다.
 //  1) const
@@ -13,7 +26,7 @@ using namespace std;
 // 4. 초기화 리스트를 사용해야 하는 경우
 //    1) const 멤버
 //    2) reference 멤버
-
+#if 0
 class Sample
 {
   const int a;
@@ -32,17 +45,36 @@ public:
 int main()
 {
 }
+#endif
 
-#if 0
+// * 멤버의 초기화 순서는 초기화 리스트의 순서에 의해서 결정되지 않습니다.
+//  => 멤버가 선언된 순서로 초기화됩니다.
+
+// * 멤버의 선언 순서와 초기화 리스트의 초기화 순서를 동일하게 작성해야 합니다.
+
+class Point
+{
+  // int x;
+
+  int x;
+  int y;
+
+public:
+  Point(int n)
+      : x(n), y(x)
+  // : y(x), x(n)
+  {
+  }
+
+  void Print()
+  {
+    cout << x << ", " << y << endl;
+  }
+};
+
 int main()
 {
-  int a = 10; // 초기화
-
-  int b;
-  b = 10; // 대입
-
-  // 초기화가 반드시 필요합니다.
-  // const int c;
-  // int &r;
+  // Point pt(100);
+  Point pt(100);
+  pt.Print();
 }
-#endif
