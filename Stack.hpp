@@ -49,13 +49,13 @@ private:
   int top;
 
 public:
-  ~Stack();
+  inline ~Stack();
 
-  Stack(int size);
-  Stack();
+  inline Stack(int size);
+  inline Stack();
 
-  void push(TYPE n);
-  TYPE pop();
+  inline void push(TYPE n);
+  inline TYPE pop();
 };
 
 template <typename TYPE>
