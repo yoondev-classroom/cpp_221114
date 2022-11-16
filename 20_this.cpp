@@ -26,6 +26,7 @@ int main()
 }
 #endif
 
+#if 0
 struct Point
 {
   int x;
@@ -33,10 +34,12 @@ struct Point
 
   // this는 멤버 함수 내부에서 사용할 수 있는 전달 받은 객체의 주소를
   // 의미합니다.
+
+  // void Set(Point *const this, int ax, int ay) => thiscall
   void Set(int ax, int ay)
   {
-    this->x = x;
-    this->y = y;
+    this->x = ax;
+    this->y = ay;
     // x = ax;
     // y = ay;
   }
@@ -49,6 +52,7 @@ int main()
   pt1.Set(10, 20);
   pt2.Set(20, 30);
 }
+#endif
 
 #if 0
 
@@ -62,3 +66,47 @@ int main()
   cout << pt.y << endl;
 }
 #endif
+
+void Set(int a, int b)
+{
+}
+
+class Sample
+{
+  int x;
+
+public:
+  void Set(int a, int b)
+  {
+    this->x = a + b;
+    // this->x = a + b;
+  }
+  /*
+void Sample::Set(int,int) PROC                   ; Sample::Set, COMDAT
+        mov     DWORD PTR [rsp+24], r8d
+        mov     DWORD PTR [rsp+16], edx
+        mov     QWORD PTR [rsp+8], rcx
+        ret     0
+void Sample::Set(int,int) ENDP                   ; Sample::Set
+  */
+};
+
+int main()
+{
+  Sample s;
+  s.Set(100, 200); // => Set(&s, 100, 200)
+  /*
+    mov     r8d, 200                      ; r8d = 200
+    mov     edx, 100                      ; edx = 100
+    lea     rcx, QWORD PTR s$[rsp]        ; rcx = &s
+    call    void Sample::Set(int,int)              ; Sample::Set
+
+  */
+
+  Set(100, 200);
+  /*
+    mov     edx, 200                      ; 000000c8H
+    mov     ecx, 100                      ; 00000064H
+    call    void Set(int,int)
+  */
+}
