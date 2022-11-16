@@ -11,6 +11,7 @@ using namespace std;
 // 3) name_: C++
 // 4) _name: MS
 
+#if 0
 class User
 {
   string name;
@@ -30,6 +31,28 @@ public:
   }
 
   void Print() { cout << name << ", " << age << endl; }
+};
+
+int main()
+{
+  User user("Tom", 42);
+  user.Print();
+}
+#endif
+
+// C++에서 멤버 데이터를 초기화하는 방법 2가지
+class User
+{
+  // 1. 필드 초기화: C++11
+  string name_ = "Bob";
+  int age_ = 0;
+
+public:
+  // 2. 초기화 리스트 => 우선순위가 높습니다.
+  User(string name, int age)
+      : name_(name), age_(age) {}
+
+  void Print() { cout << name_ << ", " << age_ << endl; }
 };
 
 int main()
