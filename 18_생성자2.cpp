@@ -29,6 +29,7 @@ public:
 //    1. 해지할 메모리를 대상으로 소멸자를 호출
 //    2. 메모리 해지
 
+#if 0
 int main()
 {
   // Point *p1 = static_cast<Point *>(malloc(sizeof(Point)));
@@ -42,4 +43,18 @@ int main()
 
   Point *p3 = new Point{10, 20}; // Point(int, int)
   delete p3;
+}
+#endif
+
+int main()
+{
+  // Point *p = new Point[3];
+
+  Point *p = new Point[3]{
+      {10, 20}, // Point(int, int)
+      {20, 30}, // Point(int, int)
+                // {}, Point()
+  };
+
+  delete[] p;
 }
