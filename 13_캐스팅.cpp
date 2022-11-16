@@ -62,8 +62,8 @@ int main()
 //     주의해서 사용해야 한다는 의도가 있습니다.
 
 // 3. const_cast
-//   : 메모리의 상수성을 제거하는 목적으로 사용합니다.
-//     const의 타입의 불일치 문제를 해결하는 용도로 사용해야 합니다.
+//   : 메모리의 상수성/휘발성을 제거하는 목적으로 사용합니다.
+//     const/volatile의 타입의 불일치 문제를 해결하는 용도로 사용해야 합니다.
 
 // 4. dynamic_cast
 //   => 곧 다시 다룹니다.
@@ -95,4 +95,9 @@ int main()
   // print_str(static_cast<char *>(str));      /* Compile Error */
   // print_str(reinterpret_cast<char *>(str)); /* Compile Error */
   print_str(const_cast<char *>(str));
+
+  volatile int n3 = 100; // 캐싱 최적화 금지 => 메모리 가시성 문제를 해결하기 위한 키워드
+  // int *pn2 = static_cast<int *>(&n3);
+  // int *pn2 = reinterpret_cast<int *>(&n3);
+  int *pn2 = const_cast<int *>(&n3);
 }
