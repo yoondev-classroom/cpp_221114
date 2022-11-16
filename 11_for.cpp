@@ -6,10 +6,10 @@ using namespace std;
 // Ranged-for
 // => 전달되는 대상체가 반복자를 구현하고 있으면,
 //    사용할 수 있습니다.
-
+#if 0
 int main()
 {
-  double x[5] = {1.1, 2.2, 3.3, 4, 5};
+  int x[5] = {1, 2, 3, 4, 5};
 
   for (int i = 0; i < sizeof(x) / sizeof(x[0]); ++i)
   {
@@ -29,4 +29,17 @@ int main()
   {
     cout << (char)toupper(e) << endl;
   }
+}
+#endif
+
+int main()
+{
+  // int x[3] = {10, 20, 30};
+
+  int n = 10;
+  int &r = n;
+
+  r = 100;
+  cout << n << endl;
+  cout << r << endl;
 }
