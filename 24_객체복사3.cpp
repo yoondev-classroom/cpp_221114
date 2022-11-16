@@ -23,15 +23,19 @@ public:
     ref = new int(1);
   }
 
-  // 컴파일러가 기본으로 만들어주는 복사 생성자 형태
   User(const User &rhs)
-      : name(rhs.name), age(rhs.age)
+      : name(rhs.name), age(rhs.age), ref(rhs.ref)
   {
+    ++(*ref);
   }
 
   ~User()
   {
-    delete[] name;
+    if (--(*ref) == 0)
+    {
+      delete[] name;
+      delete ref;
+    }
   }
 
   void Print()
