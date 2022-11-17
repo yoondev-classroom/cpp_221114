@@ -5,7 +5,7 @@ using namespace std;
 
 // 가상 소멸자
 //  : 부모 클래스의 소멸자는 반드시 가상이어야 합니다.
-
+//  => 소멸자가 가상 소멸자가 아닌 클래스는 상속하면 안됩니다.
 class Animal
 {
 public:
@@ -17,7 +17,9 @@ class Dog : public Animal
 {
 public:
   Dog() { cout << "Dog()" << endl; }
-  ~Dog() { cout << "~Dog()" << endl; }
+
+  ~Dog() override { cout << "~Dog()" << endl; }
+  // 부모의 소멸자가 가상인지 확인할 수 있습니다.
 };
 
 // 문제점: 자식의 소멸자가 호출되지 않아서, 메모리 누수의 위험성이 있습니다.
