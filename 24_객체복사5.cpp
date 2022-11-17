@@ -51,11 +51,22 @@ public:
   }
 };
 
+User g("Bob", 100);
+User foo()
+{
+  return g;
+}
+
 int main()
 {
   User *user = new User("Tom", 42);
   // rvalue로 변경하는 방법: move
-  User user2(std::move(*user));
+  // User user2(std::move(*user));
+
+  /// User user2(User("Bob", 100)); // User user2("Bob", 100);
+  User user2(std::move(foo()));
+  // User user2(foo());
+  g.Print();
 
   user->Print();
   user2.Print();
