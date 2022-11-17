@@ -68,7 +68,6 @@ public:
 
 class Cat : public Animal
 {
-
   int color_;
 
 public:
