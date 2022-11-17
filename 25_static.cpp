@@ -44,8 +44,10 @@ private:
   int color;
   int age;
 
-  static int count; // 선언
+  // static int count; // 선언
 public:
+  static int count; // 선언
+
   Car() { count++; }
   ~Car() { count--; }
 
@@ -61,7 +63,12 @@ Car car[5];
 
 int main()
 {
+  // 접근하는 방법
+  // 1. 클래스 이름
   Car::count = 100;
+
+  // 2. 객체를 통해서 접근 가능합니다.
+  cout << car1.count << endl;
 
   cout << car1.GetCount() << endl;
   cout << car2.GetCount() << endl;
