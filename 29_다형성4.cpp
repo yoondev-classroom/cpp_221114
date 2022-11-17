@@ -4,7 +4,7 @@ using namespace std;
 
 // 1. 부모가 제공하는 함수를 자식이 동일한 함수를 재정의할 수 있습니다.
 //  => 함수 오버라이딩(Overriding)
-
+#if 0
 class Animal
 {
 public:
@@ -60,5 +60,46 @@ int main()
 
   Dog d;
   d.Go();
+}
+#endif
+#endif
+
+#if 0
+class Animal
+{
+public:
+  virtual void Print() { cout << "Animal" << endl; }
+};
+
+class Dog : public Animal
+{
+  int a = 10;
+
+public:
+  virtual void Print() { cout << "Dog: " << a << endl; }
+};
+
+class Cat : public Animal
+{
+  int b = 100;
+
+public:
+  virtual void Print() { cout << "Cat: " << b << endl; }
+};
+
+#include <vector>
+
+int main()
+{
+  vector<Animal *> v;
+  v.push_back(new Dog);
+  v.push_back(new Dog);
+  v.push_back(new Cat);
+  v.push_back(new Cat);
+
+  for (auto e : v)
+  {
+    e->Print();
+  }
 }
 #endif
