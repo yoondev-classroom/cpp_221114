@@ -39,3 +39,9 @@ int main()
 //  - 객체 타입
 // void foo(User user);        /* NO */
 // void foo(const User &user); /* OK */
+
+// - 템플릿 T
+// template <typename T>
+// void foo(const T&)
+//   T   ->  int ==> const int&
+// User  -> User ==> const User&
