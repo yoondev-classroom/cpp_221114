@@ -23,6 +23,7 @@ public:
 class Dog : public Animal
 {
 public:
+  //         void Hello() {}                               => X
   // virtual void Hello() { cout << "Dog hello" << endl; } => X
 
   // virtual void Hello() override { cout << "Dog hello" << endl; }
