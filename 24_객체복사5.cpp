@@ -11,13 +11,15 @@ private:
 public:
   void Print()
   {
-    cout << name << ", " << age << endl;
+    printf("%s, %d\n", name, age);
+
+    // cout << name << ", " << age << endl;
   }
 
   User(const char *s, int n)
       : age(n)
   {
-    cout << "생성" << endl;
+    // cout << "생성" << endl;
 
     name = new char[strlen(s) + 1];
     strcpy(name, s);
@@ -31,25 +33,52 @@ public:
     strcpy(name, rhs.name);
   }
 
+  // 소유권 이전
+  User(User &&rhs) // Move constructor => C++11
+  {
+    cout << "소유권 이전" << endl;
+    name = rhs.name;
+    age = rhs.age;
+
+    rhs.name = nullptr;
+    rhs.age = 0;
+  }
+
   ~User()
   {
-    cout << "파괴" << endl;
+    // cout << "파괴" << endl;
     delete[] name;
   }
 };
 
 int main()
 {
+  User *user = new User("Tom", 42);
+  // rvalue로 변경하는 방법: move
+  User user2(std::move(*user));
+
+  user->Print();
+  user2.Print();
+
+  delete user;
+}
+
+#if 0
+int main()
+{
   // User user1("Tom", 42);
   // User user2 = user1;
 
   cout << "------" << endl;
+  // User("Tom", 42);
+
   // const User &cr = User("Tom", 42);
   User &&cr = User("Tom", 42);
   cout << "------" << endl;
 
   cout << "main 종료" << endl;
 }
+#endif
 
 // 1. 임시 객체는 표현식을 벗어나면 사라집니다.
 // 2. 임시 객체는 참조를 통해 수명을 연장할 수 있습니다.
