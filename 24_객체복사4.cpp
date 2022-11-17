@@ -14,7 +14,7 @@ private:
   // 1) private 영역에 선언만 합니다. => 링크 오류
   //   User(const User &rhs);
 
-  // 2) Delete Function
+  // 2) Delete Function - C++11
   User(const User &rhs) = delete;
 
 public:
@@ -41,6 +41,6 @@ int main()
   User user1("Tom", 42);
   user1.Print();
 
-  User user2 = user1;
+  // User user2 = user1; /* 복사 금지 */
   // user2.Print();
 }
