@@ -8,6 +8,12 @@ public:
   virtual void Go() { cout << "Animal Go" << endl; }
 };
 
+class Cat : public Animal
+{
+public:
+  void Go() override {}
+};
+
 //  C++11에서 오버라이딩 금지를 위한 키워드가 도입되었습니다.
 //   => final
 class Dog : public Animal
