@@ -58,4 +58,15 @@ int main()
   animals.push_back(new Cat);
 
   animals.push_back(new Rabbit);
+
+  //-----
+  list<int> v; // 순회 가능한 컨테이너
+  v.push_back(10);
+  v.push_back(20);
+  v.push_back(30);
+
+  for (auto e : v)
+  {
+    cout << e << endl;
+  }
 }
