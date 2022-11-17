@@ -18,6 +18,7 @@ class Dog : public Animal
 public:
   Dog() { cout << "Dog()" << endl; }
 
+  // 부모의 소멸자가 가상이면, 자식의 소멸자도 가상입니다.
   ~Dog() override { cout << "~Dog()" << endl; }
   // 부모의 소멸자가 가상인지 확인할 수 있습니다.
 };
