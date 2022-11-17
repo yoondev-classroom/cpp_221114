@@ -130,8 +130,25 @@ public:
   }
 };
 
+class Point
+{
+public:
+  Point &Move(int x, int y) { return *this; }
+  Point &Transform() { return *this; }
+
+  int Result() { return 42; }
+};
+
 int main()
 {
+  Point pt;
+  pt.Move(10, 10)
+      .Move(0, 0)
+      .Transform()
+      .Move(10, 20)
+      .Transform()
+      .Result();
+
   User user;
   user.SetName("Tom");
   user.SetAge(42);
