@@ -23,7 +23,12 @@ public:
 class Dog : public Animal
 {
 public:
-  virtual void Hello() override { cout << "Dog hello" << endl; }
+  // virtual void Hello() { cout << "Dog hello" << endl; } => X
+
+  // virtual void Hello() override { cout << "Dog hello" << endl; }
+
+  void Hello() override { cout << "Dog hello" << endl; }
+  // => C++11 이후부터는 위처럼 사용합니다.
 };
 
 int main()
