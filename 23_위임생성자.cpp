@@ -49,6 +49,8 @@ private:
   void init_process3() {}
 
 public:
+  // Primary Constructor: 주 생성자
+  // Designated Initializer: 지정 초기화 함수
   User(const string &id)
       : id_(id)
   {
@@ -60,6 +62,7 @@ public:
   User(const string &name, int age)
       : User(name + "@" + to_string(age)) // 위임 생성자!
   {
+    // User(name + "@" + to_string(age)); // 임시 객체 생성 문법
   }
 };
 
