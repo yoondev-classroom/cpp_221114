@@ -103,3 +103,10 @@ int main()
     }
   }
 }
+
+// Linux, Unix
+//  => 모든 것은 File 입니다.
+//  => VFS(Virtual File System)
+//  read / write => File    => 하드 디스크 read / write
+//                  Device  => 디바이스 제어
+//                  Socket  => 네트워크 패킷 read / write
