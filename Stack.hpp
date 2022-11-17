@@ -54,7 +54,7 @@ public:
   inline Stack(int size);
   inline Stack();
 
-  inline void push(TYPE n);
+  inline void push(const TYPE &n);
   inline TYPE pop();
 };
 
@@ -79,7 +79,7 @@ Stack<TYPE>::Stack()
 }
 
 template <typename TYPE>
-void Stack<TYPE>::push(TYPE n)
+void Stack<TYPE>::push(const TYPE &n)
 {
   buff[top++] = n;
 }

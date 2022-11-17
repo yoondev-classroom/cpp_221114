@@ -38,7 +38,13 @@ public:
     buff = new TYPE[10];
   }
 
-  void push(TYPE n)
+  // TYPE: int => void push(int n)
+  // TYPE: string => void push(string n)
+  // => TYPE은 기본 타입 뿐 아니라 객체도 사용할 수 있습니다.
+
+  // TYPE: int => void push(const int& n)
+  // TYPE: string => void push(const string& n)
+  void push(const TYPE &n)
   {
     buff[top++] = n;
   }
@@ -59,6 +65,7 @@ public:
 //       Stack: 클래스 템플릿
 // Stack<TYPE>: 클래스
 
+#if 0
 int main()
 {
   Stack<int> s1;
@@ -69,8 +76,9 @@ int main()
   Stack<string> s2;
   s2.push("hello");
 }
+#endif
 
-#if 0
+#if 1
 int main()
 {
   Stack<string> s1;
