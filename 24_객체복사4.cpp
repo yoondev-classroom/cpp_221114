@@ -25,6 +25,13 @@ public:
     strcpy(name, s);
   }
 
+  User(User &&rhs)
+      : name(rhs.name), age(rhs.age)
+  {
+    rhs.name = nullptr;
+    rhs.age = 0;
+  }
+
   ~User()
   {
     delete[] name;
@@ -32,7 +39,8 @@ public:
 
   void Print()
   {
-    cout << name << ", " << age << endl;
+    // cout << name << ", " << age << endl;
+    printf("%s, %d\n", name, age);
   }
 };
 
@@ -42,5 +50,8 @@ int main()
   user1.Print();
 
   // User user2 = user1; /* 복사 금지 */
-  // user2.Print();
+
+  User user2 = std::move(user1); /* 소유권 이전은 가능합니다. */
+  user1.Print();
+  user2.Print();
 }
