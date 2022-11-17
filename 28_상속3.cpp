@@ -9,6 +9,7 @@ using namespace std;
 // 2. protected: 외부 접근 불가능, 자식 클래스 접근 가능
 // 3. public: 외부 접근 가능
 
+#if 0
 class Animal
 {
 protected:
@@ -30,3 +31,34 @@ int main()
   d.PrintAge();
   // cout << d.age << endl; /* Error */
 }
+#endif
+
+class Animal
+{
+  // 멤버 변수는 private으로 만들어야 합니다.
+private:
+  int age = 100;
+
+protected:
+  int GetAge() const { return age; }
+};
+
+class Dog : public Animal
+{
+public:
+  void PrintAge() const
+  {
+    // cout << age << endl;
+    cout << GetAge() << endl;
+  }
+};
+
+int main()
+{
+  Dog d;
+  d.PrintAge();
+  // cout << d.age << endl; /* Error */
+}
+
+// Design Pattern, 1995 에릭 감마 외 3명
+//  => 23가지 설계적 특징
