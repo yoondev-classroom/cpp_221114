@@ -102,3 +102,8 @@ int main()
   // 일반함수: ostream& operator<<(ostream& os, const Integer& n)
 }
 #endif
+
+// C++
+//    스콧 마이어스
+//  - Effective C++(C++98/03), 곽용재
+//  - Effective Modern C++(C++11/14), 류광
