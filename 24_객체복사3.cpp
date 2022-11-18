@@ -13,6 +13,15 @@ private:
 
   int *ref;
 
+  void Release()
+  {
+    if (--(*ref) == 0)
+    {
+      delete[] name;
+      delete ref;
+    }
+  }
+
 public:
   User(const char *s, int n)
       : age(n)
@@ -29,13 +38,24 @@ public:
     ++(*ref);
   }
 
+  User &operator=(const User &rhs)
+  {
+    if (this == &rhs)
+      return *this;
+
+    Release();
+
+    name = rhs.name;
+    age = rhs.age;
+    ref = rhs.ref;
+    ++(*rhs.ref); // 참조 계수 증가!
+
+    return *this;
+  }
+
   ~User()
   {
-    if (--(*ref) == 0)
-    {
-      delete[] name;
-      delete ref;
-    }
+    Release();
   }
 
   void Print()
