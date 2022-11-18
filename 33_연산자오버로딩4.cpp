@@ -2,6 +2,9 @@
 #include <iostream>
 using namespace std;
 
+// 사용자 정의 타입을 표준 라이브러리를 통해 입출력 하는 확장이 가능합니다.
+
+#if 0
 class Point
 {
   int x = 0;
@@ -21,6 +24,24 @@ ostream &operator<<(ostream &os, const Point &pt)
 {
   return os << pt.x << ", " << pt.y;
 }
+#endif
+
+class Point
+{
+  int x = 0;
+  int y = 0;
+
+public:
+  // friend 함수를 클래스 내부에 작성할 수 있습니다.
+  friend istream &operator>>(istream &is, Point &pt)
+  {
+    return is >> pt.x >> pt.y;
+  }
+  friend ostream &operator<<(ostream &os, const Point &pt)
+  {
+    return os << pt.x << ", " << pt.y;
+  }
+};
 
 int main()
 {
