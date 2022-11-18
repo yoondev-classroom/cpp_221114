@@ -20,7 +20,7 @@ public:
 //   => Upcasting
 
 // 2. 부모 포인터(참조) 타입을 자식 포인터 타입으로의 암묵적인 변환은 허용되지 않습니다.
-//  => 명시적인 캐스팅이 필요합니다.
+//  => Downcasting, 명시적인 캐스팅이 필요합니다.
 
 // 3. RTTI(Run Time Type Information)
 //  => type_info 구조체
