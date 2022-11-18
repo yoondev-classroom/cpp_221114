@@ -5,6 +5,7 @@
 
 //  void *malloc(size_t size);
 
+#if 0
 int main()
 {
   // void* -> int* : void*는 다른 포인터 타입으로의 암묵적인 변환을 허용합니다.
@@ -14,4 +15,13 @@ int main()
   void *pv = p;
 
   free(p);
+}
+#endif
+
+int main()
+{
+  int n = 0;
+  // ++ ++ ++n;
+
+  printf("%d\n", ++n);
 }
