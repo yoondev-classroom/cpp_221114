@@ -12,21 +12,22 @@ public:
 };
 
 // Ptr과 같이 포인터의 역활을 대신 하는 클래스 타입을 "스마트 포인터"라고 합니다.
+template <typename T>
 class Ptr
 {
-  Image *obj;
+  T *obj;
 
 public:
-  Ptr(Image *p = nullptr) : obj(p) {}
+  Ptr(T *p = nullptr) : obj(p) {}
   ~Ptr() { delete obj; }
 
-  Image &operator*() { return *obj; }
-  Image *operator->() { return obj; }
+  T &operator*() { return *obj; }
+  T *operator->() { return obj; }
 };
 
 int main()
 {
-  Ptr p = new Image;
+  Ptr<Image> p = new Image;
 
   (*p).Draw();
   // Image& operator*()
