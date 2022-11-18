@@ -48,16 +48,19 @@ public:
 //        Sample s; -> 상수 멤버 함수
 //  const Sample s; -> 상수 멤버 함수
 // const Sample& s; -> 상수 멤버 함수
+// const Sample* s; -> 상수 멤버 함수
 
 // 상수 멤버 함수와 비상수 멤버 함수를 동시에 제공하는 경우
 //        Sample s; -> 비상수 멤버 함수
 //  const Sample s; -> 상수 멤버 함수
 // const Sample& s; -> 상수 멤버 함수
+// const Sample* s; -> 상수 멤버 함수
 
 // 비상수 멤버 함수만 제공하는 경우
 //        Sample s; -> 비상수 멤버 함수
 //  const Sample s; -> X
 // const Sample& s; -> X
+// const Sample* s; -> X
 
 int main()
 {

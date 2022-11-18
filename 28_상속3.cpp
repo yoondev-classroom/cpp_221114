@@ -37,10 +37,10 @@ class Animal
 {
   // 멤버 변수는 private으로 만들어야 합니다.
 private:
-  int age = 100;
+  int age_ = 100;
 
 protected:
-  int GetAge() const { return age; }
+  int GetAge() const { return age_; }
 };
 
 class Dog : public Animal

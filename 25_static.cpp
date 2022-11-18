@@ -5,9 +5,10 @@ using std::endl;
 
 #if 0
 // 자동차 객체가 몇개 생성되는지 관리하고 싶습니다.
-int count;
+
 // 문제점: 외부에서 누구나 접근이 가능합니다.
 //       Car의 속성으로 사용되지만, Car의 접근 제어가 적용되지 않습니다.
+int count;
 
 class Car
 {
