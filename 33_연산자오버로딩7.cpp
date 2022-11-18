@@ -25,9 +25,31 @@ public:
   T *operator->() { return obj; }
 };
 
+#include <memory>
+// 표준이 제공하는 스마트 포인터가 있습니다.
+// 1) shared_ptr: 참조 계수
+// 2) unique_ptr: 복사 금지 + 소유권 이동
 int main()
 {
-  Ptr<Image> p = new Image;
+  shared_ptr<Image> p1(new Image);
+  p1->Draw();
+
+  auto p3 = p1; /* 참조 계수 증가 */
+
+  unique_ptr<Image> p2(new Image);
+  p2->Draw();
+
+  // auto p4 = p2;    /* 복사 금지 */
+  auto p4 = move(p2); /* 소유권 이동 */
+}
+
+#if 0
+int main()
+{
+  Ptr<Image> p(new Image);
+
+  // Ptr p(new Image); // 컴파일러에 의해 T가 Image로 결정됩니다.
+  // 생성자의 인자를 통한 T의 추론은 C++17부터 가능합니다.
 
   (*p).Draw();
   // Image& operator*()
@@ -37,6 +59,7 @@ int main()
   // (p->)->Draw(); <- 컴파일러가 처리합니다.
   // Image* operator->()
 }
+#endif
 
 #if 0
 int main()
