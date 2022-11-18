@@ -37,6 +37,7 @@ public:
   {
     return is >> pt.x >> pt.y;
   }
+
   friend ostream &operator<<(ostream &os, const Point &pt)
   {
     return os << pt.x << ", " << pt.y;
