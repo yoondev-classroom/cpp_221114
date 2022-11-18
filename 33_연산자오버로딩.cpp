@@ -78,6 +78,10 @@ Point operator+(const Point &lhs, const Point &rhs)
   return Point(lhs.x + rhs.x, lhs.y + rhs.y);
 }
 
+// 연산자 오버로딩
+//  : 객체를 대상으로 연산자를 사용할 경우, 약속된 이름의 멤버 함수 또는 일반 함수가
+//    호출됩니다.
+
 int main()
 {
   Point p1(10, 20);
