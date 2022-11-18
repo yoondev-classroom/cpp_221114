@@ -12,6 +12,15 @@ public:
   void StopRecording() { cout << "Camera Recording Stop" << endl; }
 };
 
+class HDCamera
+{
+public:
+  void StartRecording() { cout << "HDCamera Recording Start" << endl; }
+  void StopRecording() { cout << "HDCamera Recording Stop" << endl; }
+};
+// OCP(Open Close Principle, 개방 폐쇄의 원칙)
+// => 새로운 기능이 추가되어도 기존 코드는 수정되면 안된다.
+
 class Car
 {
   Camera *camera;
