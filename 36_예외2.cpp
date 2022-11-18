@@ -15,6 +15,7 @@ using namespace std;
 //  2) 함수가 throw한 예외를 catch하지 않으면, 프로그램이 비정상종료 합니다.
 //    try-catch
 
+#if 0
 int OpenFile(const char *filename)
 {
   if (filename == nullptr)
@@ -36,6 +37,55 @@ int main()
   catch (int &e)
   {
     printf("error: %d\n", e);
+  }
+
+  printf("main end..\n");
+}
+#endif
+
+// 1. C++은 예외의 종류에 따라서 사용자 정의 타입 예외를 정의합니다.
+class InvalidFilenameException : public std::exception
+{
+public:
+  // 2. std::exception의 what을 오버라이딩해서, 사용자 정의 오류 메세지를
+  //   제공할 수 있습니다.
+  const char *what() const noexcept override
+  {
+    return "Invalid file name";
+  }
+};
+class OutOfMemoryException : public std::exception
+{
+};
+
+int OpenFile(const char *filename)
+{
+  if (filename == nullptr)
+  {
+    // throw -1;
+    throw InvalidFilenameException();
+  }
+
+  // ...
+  throw OutOfMemoryException();
+
+  return 0;
+}
+
+int main()
+{
+  // int ret = OpenFile("hello.txt");
+  try
+  {
+    int ret = OpenFile(nullptr);
+    printf("ret: %d\n", ret);
+  }
+  catch (OutOfMemoryException &e)
+  {
+  }
+  catch (InvalidFilenameException &e)
+  {
+    cout << e.what() << endl;
   }
 
   printf("main end..\n");
