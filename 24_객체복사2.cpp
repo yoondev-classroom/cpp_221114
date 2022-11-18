@@ -27,6 +27,24 @@ public:
     strcpy(name, rhs.name);
   }
 
+  // 대입 연산자
+  // a = a;
+  User &operator=(const User &rhs)
+  {
+    // 1. 자기 자신과 동일한 객체인지 판단합니다.
+    if (this == &rhs)
+      return *this;
+
+    // 2. 자신이 가지고 있는 자원을 반납합니다.
+    delete[] name;
+
+    // 3. 복사를 수행합니다.
+    name = new char[strlen(rhs.name) + 1];
+    strcpy(name, rhs.name);
+
+    return *this;
+  }
+
   ~User()
   {
     delete[] name;
