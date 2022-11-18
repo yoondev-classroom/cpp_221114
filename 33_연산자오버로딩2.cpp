@@ -12,27 +12,27 @@ namespace std {
 
 namespace xstd
 {
-  class xostream
+  class ostream
   {
   public:
-    xostream &operator<<(int n)
+    ostream &operator<<(int n)
     {
       printf("%d", n);
       return *this;
     }
-    xostream &operator<<(const char *s)
+    ostream &operator<<(const char *s)
     {
       printf("%s", s);
       return *this;
     }
-    xostream &operator<<(double d)
+    ostream &operator<<(double d)
     {
       printf("%.2lf", d);
       return *this;
     }
   };
 
-  xostream cout;
+  ostream cout;
 }
 
 int main()
